@@ -10,7 +10,8 @@ export default function Intro() {
     init(textRef.current, {
       showCursor: true,
       backDelay: 1500,
-      backSpeed:60,
+      backSpeed: 60,
+      showCursor: true ,
       strings: ["Developer", "Designer", "Content Creator"],
     });
   }, []);
