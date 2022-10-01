@@ -1,21 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./intro.scss";
-import { init } from "ityped";
-import { useEffect, useRef } from "react";
+
+import Typewriter from "typewriter-effect";
 
 export default function Intro() {
-  const textRef = useRef();
 
-  useEffect(() => {
-    init(textRef.current, {
-      showCursor: true,
-      backDelay: 1500,
-      backSpeed: 60,
-      showCursor: true ,
-      strings: ["Developer", "Designer", "Content Creator"],
-    });
-  }, []);
 
+  const [state] = useState({
+    
+    title: "Web Developer"
+
+  });
   return (
     <div className="intro" id="intro">
       <div className="left">
@@ -26,14 +21,28 @@ export default function Intro() {
       <div className="right">
         <div className="wrapper">
           <h2>Hi There, I'm</h2>
-          <h1>Safak Kocaoglu</h1>
-          <h3>
-            Freelance <span ref={textRef}></span>
+          <h1>Hritik Yadav</h1>
+          <h3 className="effect">Freelance
+            <span>
+          < Typewriter
+            options={{
+              autoStart: true, loop: true,
+                  delay: 40,
+                  
+              strings: [
+                " Web Developer",
+                " Web Designer"
+            ],
+            
+            }}
+              />
+              </span>
           </h3>
         </div>
         <a href="#portfolio">
           <img src="assets/down.png" alt="" />
         </a>
+        
       </div>
     </div>
   );
