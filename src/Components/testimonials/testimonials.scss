@@ -1,91 +1,122 @@
 
 @import "../../global.scss";
 
-.topbar {
-  width: 100%;
-  height: 70px;
+.testimonials {
   background-color: white;
-  color: $mainColor;
-  position: fixed;
-  top: 0;
-  z-index: 3;
-  transition: all 1s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .wrapper {
-    padding: 10px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  @include mobile{
+    justify-content: space-around;
+  }
 
-    .left {
-      display: flex;
-      align-items: center;
 
-      .logo {
-        font-size: 40px;
-        font-weight: 700;
-        text-decoration: none;
-        color: inherit;
-        margin-right: 40px;
-      }
+  h1 {
+    font-size: 50px;
 
-      .itemContainer {
-        display: flex;
-        align-items: center;
-        margin-left: 30px;
-
-        @include mobile{
-          display: none;
-        }
-
-        .icon {
-          font-size: 18px;
-          margin-right: 5px;
-        }
-
-        span {
-          font-size: 15px;
-          font-weight: 500;
-        }
-      }
-    }
-
-    .right {
-      .hamburger {
-        width: 32px;
-        height: 25px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        cursor: pointer;
-
-        span {
-          width: 100%;
-          height: 3px;
-          background-color: $mainColor;
-          transform-origin: left;
-          transition: all 2s ease;
-        }
-      }
+    @include mobile{
+      font-size: 20px;
     }
   }
 
-  &.active {
-    background-color: $mainColor;
-    color: white;
+  .container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .hamburger {
-      span {
-        &:first-child {
-          background-color: white;
-          transform: rotate(45deg);
+    @include mobile{
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card {
+      width: 250px;
+      height: 70%;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px -8px black;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 20px;
+      transition: all 1s ease;
+
+      @include mobile{
+        height: 180px;
+        margin: 10px 0;
+      }
+
+      &.featured{
+          width: 300px;
+          height: 75%;
+          margin: 0 30px;
+
+          @include mobile{
+            width: 250px;
+            height: 180px;
+            margin: 1px;
+          }
+      }
+
+      &:hover{
+          transform: scale(1.1);
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          &.left,
+          &.right {
+            height: 25px;
+          }
+          &.user {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 30px;
+
+            @include mobile{
+              width: 30px;
+              height: 30px;
+            }
+          }
         }
-        &:nth-child(2) {
-          opacity: 0;
+      }
+
+      .center {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgb(250, 244, 245);
+
+        @include mobile{
+          font-size: 12px;
+          padding: 5px;
         }
-        &:last-child {
-          background-color: white;
-          transform: rotate(-45deg);
+      }
+      .bottom {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        h3 {
+          margin-bottom: 5px;
+
+          @include mobile{
+            font-size: 14px;
+          }
+        }
+        h4{
+            color: rgb(121, 115, 115);
+            @include mobile{
+              font-size: 13px;
+            }
         }
       }
     }
